@@ -1,0 +1,1 @@
+{"version":3,"file":"index.css","mappings":";AACI,aACI,c","sources":["webpack://webpack-pattern/./src/styles/general.scss"],"sourcesContent":[".container {\r\n    p {\r\n        color:darkgreen;\r\n    }\r\n}"],"names":[],"sourceRoot":""}

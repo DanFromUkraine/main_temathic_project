@@ -1,0 +1,1 @@
+{"version":3,"file":"index.js","mappings":"mBAAAA,QAAQC,IAAI,sB","sources":["webpack://webpack-pattern/./src/index.js"],"sourcesContent":["console.log(\"webpack-template-js\");\r\n\r\nimport \"./styles/homepage&index.scss\"\r\nimport \"./styles/general.scss\";"],"names":["console","log"],"sourceRoot":""}

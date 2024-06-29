@@ -1,0 +1,1 @@
+import "../../styles/NFT_page.scss"

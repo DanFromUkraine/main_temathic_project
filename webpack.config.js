@@ -4,9 +4,16 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: {
+    index: "./src/index.js",
+    artist_page: "./src/pages/artist_page/artist_page.js",
+    connect_wallet: "./src/pages/connect_wallet/connect_wallet.js",
+    create_account: "./src/pages/create_account/create_account.js",
+    marketplace: "./src/pages/marketplace/marketplace.js",
+    NFT_page: "./src/pages/NFT_page/NFT_page.js",
+  },
   output: {
-    filename: 'bundle.js',
+    filename: '[name].js',
     path: path.resolve(__dirname, 'dist')
   },
   mode: 'production',
@@ -56,11 +63,48 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      template: './src/index.html'
+      template: './src/index.html',
+      chunks: ["index"]
+    }),
+    new HtmlWebpackPlugin({
+      title: "artist_page",
+      template: "./src/pages/artist_page/artist_page.html",
+      filename: "artist_page.html",
+      chunks: ["artist_page"]
+    }),
+    new HtmlWebpackPlugin({
+      title: "connect_wallet",
+      template: "./src/pages/connect_wallet/connect_wallet.html",
+      filename: "connect_wallet.html",
+      chunks: ["connect_wallet"]
+    }),
+    new HtmlWebpackPlugin({
+      title: "create_account",
+      template: "./src/pages/create_account/create_account.html",
+      filename: "create_account.html",
+      chunks: ["create_account"]
+    }),
+    new HtmlWebpackPlugin({
+      title: "marketplace",
+      template: "./src/pages/marketplace/marketplace.html",
+      filename: "marketplace.html",
+      chunks: ["marketplace"]
+    }),
+    new HtmlWebpackPlugin({
+      title: "NFT_page",
+      template: "./src/pages/NFT_page/NFT_page.html",
+      filename: "NFT_page.html",
+      chunks: ["NFT_page"]
+    }),
+    new HtmlWebpackPlugin({
+      title: "rankings",
+      template: "./src/pages/rankings/rankings.html",
+      filename: "rankings.html",
+      chunks: ["rankings"]
     }),
     new MiniCssExtractPlugin({
       filename: '[name].css',
       chunkFilename: '[id].css'
-    })
+    }),
   ]
 };
