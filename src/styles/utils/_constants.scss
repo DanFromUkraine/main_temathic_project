@@ -1,0 +1,92 @@
+.input_reset {
+  input {
+    border: none;
+    outline: none;
+
+  }
+}
+
+.logo {
+  img {
+    width: 18.984vw;
+    height: 5vh;
+  }
+}
+
+
+.weekly_digest {
+  width: 81.031vw;
+  h2 {
+    font-size: 2.969vw;
+    width: fit-content;
+  }
+  p {
+    width: 33.203vw;
+    font-size: 1.719vw;
+  }
+  .email_and_btn {
+    display: flex;
+    .email_input {
+      display: flex;
+      justify-content: space-between;
+      width: 33.203vw;
+      padding: 1.563vw;
+      background-color: white;
+      border-radius: 20px;
+      input {
+        width: 18.734vw;
+      }
+      @extend .input_reset;
+      
+    }
+    a {
+      background-color: #A259FF;
+      padding-left: 3.906vw;
+      padding-right: 3.906vw;
+      border-radius: 20px;
+      position: relative;
+      left: -16vw;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      span {
+        font-size: 1.25vw;
+      }
+      img {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+  
+}
+
+@media (width < 834px) {
+  .logo {
+    img {
+      width: 36vw;
+    }
+  }
+  
+}
+@media (width < 375px) {
+  .weekly_digest {
+    p {
+      width: 33.203vw;
+    }
+    .email_and_btn {
+      display: block;
+      .email_input {
+        input {
+          width: 100%;
+        }
+      }
+      a {
+        left: 0;
+        margin-top: 10px;
+        padding-top: 6px;
+        padding-bottom: 6px;
+      }
+    }
+  }
+}

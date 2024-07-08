@@ -1,1 +1,5 @@
-import "../../styles/rankings.scss"
+import "../../styles/rankings.scss";
+import "../../styles/general.scss";
+import "../../utils/add_header";
+import "../../utils/add_footer";
+import "../../utils/scroll_to_top"

@@ -1,0 +1,62 @@
+@import "../utils/constants";
+@import "../utils/mixins";
+
+footer {
+    padding: 40px;
+    display: flex;
+    gap: 20px;
+    background-color: #3B3B3B;
+    div {
+        display: block;
+        margin: 0;
+        width: fit-content;
+        .column_heading {
+            @extend .logo     
+        }
+        .footer_weekly_digest {
+            @extend .weekly_digest;
+            h2 {
+                @include h2(22);
+            }
+            p {
+                @include p(16, #CCCCCC);
+            }
+        }
+
+        h2 {
+            margin: 0;
+            @include h2(22);
+        }
+        p {
+            @include p(16, #CCCCCC);
+        }
+
+        .social_medias {
+            display: flex;
+        }
+    }
+}
+
+@media (width < 834px) {
+    footer {
+        display: block;
+        div {
+            padding-top: 15px;
+            padding-bottom: 15px;
+            // h2 {
+            //     @include h2(41);
+            // }
+            // p {
+            //     @include p(31, #CCCCCC);
+            // }
+            // .footer_weekly_digest {
+            //     h2 {
+            //         @include text(41);
+            //     }
+            //     p {
+            //         @include text(31, #CCCCCC);
+            //     }
+            // }
+        }
+    }
+}

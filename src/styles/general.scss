@@ -1,5 +1,44 @@
-.container {
-    p {
-        color:darkgreen;
-    }
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+@import "./components/header";
+@import "./components/footer";
+@import "./utils/mixins";
+
+body {
+  background-color: rgba(43, 43, 43, 1);
+  margin: 0;
+  box-sizing: border-box;
+
+  font-family: "Work Sans", sans-serif;
+  font-optical-sizing: auto;
+  overflow-x: hidden;
+  color: white;
+
+}
+li {
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+}
+main {
+  width: 100vw;
+  display: block;
+  margin: 0 auto;
+}
+.db {
+  display: block !important;
+}
+
+h1 {
+  @include h1(67)
+}
+p {
+  @include p(20);
+}
+
+h2 {
+  @include h2(22);
+}
+p {
+  
 }
