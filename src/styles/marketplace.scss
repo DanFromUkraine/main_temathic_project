@@ -1,0 +1,60 @@
+
+
+
+.main_marketplace {
+    padding: 100px 0 100px 8.984vw;
+    .input_cont {
+       display: flex;
+       align-items: center; 
+       img {
+        position: relative;
+        left: -50px;
+       }
+    }
+    .marketplace_search_input {
+        width: 82.031vw;
+        padding: 20px;
+        border: 1px solid #3B3B3B;
+        border-radius: 20px;
+        background-color: transparent;
+        color: white;
+    }
+    
+}
+
+.cards_cont {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    background-color: #3B3B3B;
+    padding: 60px 0 60px 8.984vw;
+
+    .card {
+        width: 25.781vw;
+        .main-img-wrapper {
+            img {
+                width: 25.781vw;
+            }
+        }
+        .info_block {
+            background-color: #2b2b2b;
+            position: relative;
+            top: -4px;
+            border-radius:  0 0 20px 20px;
+            padding: 30px;
+            h3 {
+                margin: 0;
+                font-size: 1.375em;
+            }
+            .author {
+                display: flex !important;
+                gap: 12px;
+                align-items: center;
+                p {
+                    font-size: 1em;
+                }
+            }
+        }
+       
+    }
+}

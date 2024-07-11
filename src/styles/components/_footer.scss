@@ -4,7 +4,7 @@
 footer {
     padding: 40px;
     display: flex;
-    gap: 20px;
+    gap: 7.813vw !important;
     background-color: #3B3B3B;
     div {
         display: block;
@@ -43,20 +43,6 @@ footer {
         div {
             padding-top: 15px;
             padding-bottom: 15px;
-            // h2 {
-            //     @include h2(41);
-            // }
-            // p {
-            //     @include p(31, #CCCCCC);
-            // }
-            // .footer_weekly_digest {
-            //     h2 {
-            //         @include text(41);
-            //     }
-            //     p {
-            //         @include text(31, #CCCCCC);
-            //     }
-            // }
         }
     }
 }

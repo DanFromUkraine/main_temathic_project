@@ -6,7 +6,8 @@
   "scripts": {
     "build": "webpack --config webpack.config.js",
     "server": "webpack serve --config webpack.config.js",
-    "json": "json-server -w db.json"
+    "json": "json-server -w db.json",
+    "deploy": "gh-pages -d dist"
   },
   "keywords": [],
   "author": "",

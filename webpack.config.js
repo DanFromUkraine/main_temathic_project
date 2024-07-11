@@ -22,10 +22,9 @@ module.exports = {
   mode: "production",
   devtool: "source-map",
   devServer: {
-    // contentBase: './dist',
-    open: true,
     hot: true,
-  },
+    open: "index.html", 
+    },
   module: {
     rules: [
       {
@@ -116,6 +115,7 @@ module.exports = {
       filename: "[name].css",
       chunkFilename: "[id].css",
     }),
+    
   ],
   performance: {
     hints: false,
