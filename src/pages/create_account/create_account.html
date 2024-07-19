@@ -8,7 +8,7 @@
 
   <body>
     <main >
-            <div class="form-container">
+            <div class="form-container sign_in">
                     <p class="title">Welcome back</p>
                     <form class="form" data-log="sign_in">
                       <input name="email" type="email" class="input" placeholder="Email">
@@ -39,11 +39,12 @@
                     </div>
                 
             </div> 
-            <div class="form-container hidden">
+
+
+            <div class="form-container hidden sign_up">
                 <p class="title">Create account</p>
                 <p class="sub-title">Let's get statred with your 30 days free trial</p>
                 <form class="form" data-log="sign_up">
-                  <input name="name" type="text" class="input" placeholder="Name">
                   <input name="email" type="email" class="input" placeholder="Email">
                   <input name="password" type="password" class="input" placeholder="Password">
                   <input type="submit" class="form-btn">Create account</input>
@@ -68,6 +69,26 @@
                   </div>
                 </div>
             </div>
+
+            <div class="ERR_module_cont">
+              <div class="error_module Err_invalid_input">
+                <div class="img-wrapper">
+                  <img src="./img/create_account/remove_circle.png" alt="">
+                </div>
+                <p>
+                  Упс! Виникла помилка :( Email, або пароль не підходять
+                </p>
+              </div>
+              <div class="error_module Err_user_exists">
+                <div class="img-wrapper">
+                  <img src="./img/create_account/remove_circle.png" alt="">
+                </div>
+                <p>
+                  Упс! Виникла помилка :( Користувач з такою поштою вже існує 
+                </p>
+              </div>
+            </div>
+            
     </main>
   </body>
 </html>

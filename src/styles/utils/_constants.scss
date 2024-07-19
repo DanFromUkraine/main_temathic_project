@@ -90,3 +90,15 @@
     }
   }
 }
+
+.font_p {
+  @media (width > 834px) {
+    font-size: 1.25vmax !important;
+  }
+  @media (width < 834px) {
+    font-size: 1.439vmax !important;
+  }
+  @media (width < 324px) {
+    
+  }
+}

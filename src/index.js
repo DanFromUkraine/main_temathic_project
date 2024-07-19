@@ -1,19 +1,8 @@
-console.log("webpack-template-js");
-
-import "./styles/homepage&index.scss"
+import "./styles/homepage&index.scss";
 import "./styles/general.scss";
-import "./utils/add_header"
-import "./utils/add_footer"
-import "./utils/scroll_to_top"
+import "./utils/add_header";
+import "./utils/add_footer";
+import "./utils/scroll_to_top";
+import { scroll_to } from "./utils/scroll_to_el";
 
-// const logos = document.querySelectorAll(".index");
-// logos.forEach(logo => 
-//     logo.addEventListener("click", (e) => {
-//         console.log("клік по логотипу");
-//         e.preventDefault();
-//         window.scrollTo({
-//             top: 0,
-//             behavior: "smooth"
-//         })
-//     })
-// ) 
+scroll_to(document.querySelector(".get_started"), document.querySelector(".how_it_works"));

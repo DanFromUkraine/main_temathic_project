@@ -1,15 +1,26 @@
 import header from "../templates/header.handlebars";
+import { sign_out } from "../utils/firebase";
+
 
 async function add_header() {
   if (!document.querySelector("header")) {
     await new Promise((resolve) => {
-      console.log(localStorage.getItem("status"));
       document
         .querySelector("main")
         .insertAdjacentHTML(
           "afterbegin",
-          header({ status: JSON.parse(localStorage.getItem("status")) })
+          header({ status: sessionStorage.getItem("status") })
         );
+        if (sessionStorage.getItem("status")) {
+          document.querySelector(".logout_button").addEventListener("click", () => {
+                    sign_out().then(mess => {
+                        console.log(mess);
+                        sessionStorage.setItem("status", false);
+                        location.reload(false);
+                        location.replace("./create_account.html");
+                    } ).catch(err => console.log(err));
+                });
+        }
       resolve();
     });
   } else {
@@ -30,3 +41,6 @@ async function add_header() {
 }
 
 add_header();
+
+
+

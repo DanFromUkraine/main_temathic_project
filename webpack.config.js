@@ -8,11 +8,9 @@ module.exports = {
   entry: {
     index: "./src/index.js",
     artist_page: "./src/pages/artist_page/artist_page.js",
-    connect_wallet: "./src/pages/connect_wallet/connect_wallet.js",
     create_account: "./src/pages/create_account/create_account.js",
     marketplace: "./src/pages/marketplace/marketplace.js",
     NFT_page: "./src/pages/NFT_page/NFT_page.js",
-    rankings: "./src/pages/rankings/rankings.js",
     success_page: "./src/pages/success_page/success_page.js"
   },
   output: {
@@ -76,12 +74,6 @@ module.exports = {
       chunks: ["artist_page"],
     }),
     new HtmlWebpackPlugin({
-      title: "connect_wallet",
-      template: "./src/pages/connect_wallet/connect_wallet.html",
-      filename: "connect_wallet.html",
-      chunks: ["connect_wallet"],
-    }),
-    new HtmlWebpackPlugin({
       title: "create_account",
       template: "./src/pages/create_account/create_account.html",
       filename: "create_account.html",
@@ -100,16 +92,15 @@ module.exports = {
       chunks: ["NFT_page"],
     }),
     new HtmlWebpackPlugin({
-      title: "rankings",
-      template: "./src/pages/rankings/rankings.html",
-      filename: "rankings.html",
-      chunks: ["rankings"],
-    }),
-    new HtmlWebpackPlugin({
       title: "success_page",
       template: "./src/pages/success_page/success_page.html",
       filename: "success_page.html",
       chunks: ["success_page"],
+    }),
+    new HtmlWebpackPlugin({
+      title: "error_page",
+      template: "./src/pages/error_page/error.html",
+      filename: "error.html",
     }),
     new MiniCssExtractPlugin({
       filename: "[name].css",

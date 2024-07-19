@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
 @import "./components/header";
 @import "./components/footer";
-@import "./utils/mixins";
+// @import "./utils/mixins";
 
 body {
   background-color: rgba(43, 43, 43, 1);
@@ -30,14 +30,16 @@ main {
 }
 
 h1 {
-  @include h1(67)
+  font-size: clamp(28px, 5.234vw , 67px) !important;
+
 }
 p {
-  @include p(20);
+  font-size: clamp(16px, 1.719vw , 22px);
 }
 
 h2 {
-  @include h2(22);
+  // font-size: clamp(28px, 2.969vw, 38px) !important;
+
 }
 p {
   

@@ -4,6 +4,12 @@ header {
     padding: 0 3.906vw 0 3.906vw;
     height: 100px;
     align-items: center;
+    position: fixed;
+    width: 94%;
+    z-index: 100;
+    background-color: #2b2b2b;
+    top: 0;
+
   
     @extend .logo;
     ul {
@@ -17,7 +23,7 @@ header {
           margin-left: 1.563vw;
           margin-right: 1.563vw;
           color: #ffffff;
-          padding: 0px 2.334vw;
+          padding: 0px;
           white-space: nowrap;
 
           display: flex;
@@ -69,6 +75,18 @@ header {
       .line.line:nth-child(2) {
         width: 50%;
       }
+
+      .db {
+        background-color: grey;
+        padding: 20px;
+      }
+      .db:nth-child(2) {
+        border-radius: 20px 20px 0 0;
+        padding-top: 60px;
+      }
+      .db:last-child {
+        border-radius:  0 0 20px 20px;
+      }
   
       .burger_menu.open .line:nth-child(1) {
         transform: translateY(10px) rotate(45deg);
@@ -97,7 +115,6 @@ header {
         text-align: right;
         margin-top: 177px;
 
-        background-color: grey;
         z-index: 10;
         border-radius: 20px;
         padding: 15px;

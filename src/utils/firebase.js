@@ -1,12 +1,6 @@
 
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyDcxtY_J6rEsYuNrYXMDsgjXA2dSAr8z8A",
   authDomain: "project-success-1b72b.firebaseapp.com",
@@ -17,19 +11,23 @@ const firebaseConfig = {
   measurementId: "G-4LFHPJJYGE"
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
 
-import { getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword     } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword, signOut } from "firebase/auth";
 
 const auth = getAuth();
 
+export function sign_out() {
+  return signOut(auth).then().catch();
+}
+
 export function create_user_with_email_and_password({email, password}) {
-    createUserWithEmailAndPassword(auth, email, password)
+    return createUserWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
     // Signed up 
     const user = userCredential.user;
+
+    return user;
     // ...
   })
   .catch((error) => {
@@ -39,15 +37,19 @@ export function create_user_with_email_and_password({email, password}) {
   });
 }
 export function sign_in_with_email_and_password({email, password}) {
-    signInWithEmailAndPassword(auth, email, password)
+  return signInWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
     // Signed in 
     const user = userCredential.user;
+    return user;
+    console.log(user)
     // ...
   })
   .catch((error) => {
     const errorCode = error.code;
     const errorMessage = error.message;
+    console.log(errorMessage)
+    return errorMessage
   });
 
 }
