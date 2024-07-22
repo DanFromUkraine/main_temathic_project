@@ -111,12 +111,12 @@
       }
       .author {
         @extend .hero_author;
+        top: 0;
+        background-color: inherit;
         h2 {
           width: 25.781vw;
           font-size: 1.875vw;
         }
-        top: 0;
-        background-color: inherit;
       }
     }
   }
@@ -131,11 +131,11 @@
     background-color: #3B3B3B;
     border-radius: 20px;
     padding: 4.688vw;
+    gap: 6.25vw;
 
     .img-wrapper img {
       width: 33.203vw;
     }
-    gap: 6.25vw;
     @extend .weekly_digest;
     .weekly_digest {
       width: 49vw;

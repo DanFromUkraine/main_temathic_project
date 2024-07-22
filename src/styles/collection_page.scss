@@ -1,0 +1,60 @@
+// @import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+.monospace_font {
+    font-family: "Space Mono", monospace;
+    color: #858584;
+}
+
+.img-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.main_banner_image {
+    width: 100%;
+}
+
+.text_cont {
+    padding-left: 8.984vw;
+    width: 82.031vw;
+
+    h2 {
+        font-size: clamp(28px, 4.556vw, 51px);
+    }
+
+    .author {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        .img-wrapper {
+            width: min-content;
+            img {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+            }
+        }
+    }
+    .details {
+        a {
+            color: #858584;
+        }
+    }
+}
+
+main {
+    padding-top: 74px;
+}
+.cards_cont {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 30px;
+    padding: 115px;
+    .card {
+        .main-img-wrapper {
+            img {
+                width: 25.781vw;
+            }
+        }
+    }
+}

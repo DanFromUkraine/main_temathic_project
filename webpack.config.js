@@ -10,14 +10,14 @@ module.exports = {
     artist_page: "./src/pages/artist_page/artist_page.js",
     create_account: "./src/pages/create_account/create_account.js",
     marketplace: "./src/pages/marketplace/marketplace.js",
-    NFT_page: "./src/pages/NFT_page/NFT_page.js",
+    collection: "./src/pages/collection_page/collection.js",
     success_page: "./src/pages/success_page/success_page.js"
   },
   output: {
     filename: "[name].js",
     path: path.resolve(__dirname, "dist"),
   },
-  mode: "production",
+  mode: "development",
   devtool: "source-map",
   devServer: {
     hot: true,
@@ -86,10 +86,10 @@ module.exports = {
       chunks: ["marketplace"],
     }),
     new HtmlWebpackPlugin({
-      title: "NFT_page",
-      template: "./src/pages/NFT_page/NFT_page.html",
-      filename: "NFT_page.html",
-      chunks: ["NFT_page"],
+      title: "collection",
+      template: "./src/pages/collection_page/collection.html",
+      filename: "collection.html",
+      chunks: ["collection"],
     }),
     new HtmlWebpackPlugin({
       title: "success_page",

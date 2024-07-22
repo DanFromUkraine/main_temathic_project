@@ -1,0 +1,45 @@
+
+<div class="main_info_cont">
+{{#if banner_image_url}}
+    <div class="img-wrapper">
+    <img src="{{banner_image_url}}" alt="" class="main_banner_image">
+    </div>
+{{else}}
+    <div class="img-wrapper">
+    <img src="{{image_url}}" alt="" class="collection_image">
+    </div>
+{{/if}}
+
+    <div class="text_cont">
+        <h2>
+            {{collection}}
+        </h2>
+        <p class="monospace_font">
+            created by: 
+        </p>
+        <div class="author">
+            <div class="img-wrapper">
+                <img src="{{profile_image_url}}" alt="">
+            </div>
+            <p>{{username}}</p>
+        </div>
+        {{#if description}}
+        <div class="description">
+            <p class="monospace_font">Description</p>
+            <p>{{description}}</p>
+        </div>
+            
+        {{/if}}
+        
+            <div class="details">
+                <p class="monospace_font">Details</p>
+                {{#if website }}
+                    <a href="{{website}}" target="_blank">original website</a>
+                {{/if}}
+                {{#if opensea_url}}
+                    <a href="{{opensea_url}}" target="_blank">opensea</a>
+                {{/if}}
+            </div>
+    </div>
+</div>
+
