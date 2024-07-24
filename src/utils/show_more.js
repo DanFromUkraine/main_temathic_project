@@ -1,6 +1,12 @@
-import { fetch_collections } from "./process_collections";
+import { fetch_collections, main_callbacks } from "./process_collections";
+import { constants } from "./constants";
+const { classNames } = constants;
 
-const show_more_btn = document.querySelector(".show_more_btn");
-show_more_btn.addEventListener("click", (e) => {
-    fetch_collections(sessionStorage.getItem("next_str", true))
-});
+export function show_more(btn, writing_path) {
+    btn.addEventListener("click", btn_onclick)
+    function btn_onclick() {
+        fetch_collections({ callback: main_callbacks }, { render_subject: writing_path});
+    }
+}
+
+show_more(document.querySelector(classNames.show_more_btn), document.querySelector(classNames.mark_def_cards_cont_loc));

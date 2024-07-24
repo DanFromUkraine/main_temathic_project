@@ -1,93 +1,55 @@
 import cards_tpl from "../templates/marketplace_cards.handlebars";
 import { constants } from "./constants";
-const { GET_collections_opt, GET_collections, GET_acc } = constants;
+const { GET_collections_opt, GET_collections, GET_acc, classNames } = constants;
 import { onCollectionClick } from "./onCollectionClick";
-import { add_to_array_cell, rewrite_cell } from "./write_in_st";
-
-// export async function fetch_collections(next_str, storage, writing_path) {
-//   fetch(GET_collections(next_str), GET_collections_opt)
-//     .then((resp) => resp.json())
-//     .then((res) => {
-//       const { collections } = res;
-//       sessionStorage.setItem("next_str", res.next);
-//       collections.map((collection) => {
-//         fetch(GET_acc(collection.owner), GET_collections_opt)
-//           .then((resp) => resp.json())
-//           .then((res) => {
-//             const fulfield_collection = { ...collection, ...res };
-
-//             if (!storage) {
-//               write_in_localStorage("collections", fulfield_collection);
-
-//               document
-//                 .querySelector(".cards_cont")
-//                 .insertAdjacentHTML(
-//                   "beforeend",
-//                   cards_tpl(fulfield_collection)
-//                 );
-
-//               onCollectionClick(
-//                 document.querySelector(".cards_cont").lastElementChild,
-//                 fulfield_collection
-//               );
-//             }
-//             if (writing_path) {
-//               write_in_localStorage(writing_path, fulfield_collection);
-//             }
-//           });
-//       });
-//     })
-//     .catch((err) => {
-//       location.replace("./error.html");
-//     });
-//   if (!storage) {
-//     localStorage.setItem("loaded", true);
-//   }
-// }
-
-// if (localStorage.getItem("loaded")) {
-//   const cards_data = JSON.parse(localStorage.getItem("collections"));
-//   cards_data.forEach((card_data) => {
-//     document
-//       .querySelector(".cards_cont")
-//       .insertAdjacentHTML("beforeend", cards_tpl(card_data));
-
-//     onCollectionClick(
-//       document.querySelector(".cards_cont").lastElementChild,
-//       card_data
-//     );
-//   });
-// } else {
-//   fetch_collections();
-// }
+import { add_to_array_cell, rewrite_cell, read_st } from "./st_communicator";
+import { insert_via_tpl } from "./insert_card_with_tpl";
+import { onScrollDown } from "./onScrollDown";
 
 export function fetch_collections(
-  { next, writable, writing_path },
-  { should_render, render_subject, render_template }
+  {  writable, writing_path, callback },
+  { render_subject = false, render_template = cards_tpl }
 ) {
-  fetch(GET_collections(next), GET_collections_opt)
+  return fetch(GET_collections(read_st(sessionStorage, "next")), GET_collections_opt)
     .then((resp) => resp.json())
     .then((resp) => {
-
+      const fulfield_collections = []
       for (const collection of resp.collections) {
+        if (collection.image_url === null) {
+          continue;
+        }
         get_collection_with_author(collection).then((fulfield_collection) => {
-          console.log(fulfield_collection);
-          if (writable) {
+          fulfield_collections.push(collection);
+          if (writable !== null) {
             add_to_array_cell(localStorage, writing_path, fulfield_collection);
             rewrite_cell(sessionStorage, "next", resp.next)
           }
-          if (should_render) {
+          if (render_subject) {
             render_subject.insertAdjacentHTML(
               "beforeend",
               render_template(fulfield_collection)
             );
           }
-        });
+          if (typeof callback === "function") {
+            if (document.querySelector(classNames.mark_def_cards_cont_loc)) { // я не знаю чого, але навіть коли значення callback = undefined, він все одно намагається програти блок коду нижче
+              callback(document.querySelector(classNames.mark_def_cards_cont_loc).lastElementChild, fulfield_collection)
+            }  
+          }
+         });
       }
-    }).catch(err => console.log(err))
+    }).then(() => true).catch(err => console.log(err))
 }
 
-fetch_collections({writable: true}, { should_render: false });
+function post_actions(rendered) {
+  rewrite_cell(localStorage, "loaded", true);
+    onScrollDown(document.querySelector(classNames.mark_def_cards_cont_loc));
+}
+
+
+
+export function main_callbacks(el_node, el_data) {
+  onCollectionClick(el_node, el_data);
+}
 
 function get_collection_with_author(collection) {
   return fetch(GET_acc(collection.owner), GET_collections_opt)
@@ -96,4 +58,18 @@ function get_collection_with_author(collection) {
       return { ...collection, ...res };
     });
 }
+
+export function init_marketplace() {
+  if (localStorage.getItem("loaded")) {
+    for (const collection of read_st(localStorage, "collections")) {
+      insert_via_tpl(cards_tpl, document.querySelector(classNames.mark_def_cards_cont_loc), collection, main_callbacks)
+    } 
+  } else {
+    fetch_collections({writable: true, callback: main_callbacks, writing_path: "collections"
+    }, { render_subject: document.querySelector(classNames.mark_def_cards_cont_loc)}).then(post_actions)
+  }
+}
+
+
+
 

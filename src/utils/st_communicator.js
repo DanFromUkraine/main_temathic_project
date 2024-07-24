@@ -15,3 +15,11 @@ export function rewrite_cell(storage, key, val) {
     }
   }
   
+  export function read_st(type, key) {
+    const val = JSON.parse(type.getItem(key));
+    if (val) {
+      return val;
+    } else {
+      return "";
+    }
+  }

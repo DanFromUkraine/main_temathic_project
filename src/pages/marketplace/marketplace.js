@@ -6,5 +6,7 @@ import "../../utils/scroll_to_top";
 import "../../utils/process_collections";
 import "../../utils/onOffline";
 import "../../utils/show_more";
-import "../../utils/onScrollDown";
+// import { onScrollDown } from "../../utils/onScrollDown";
+import { init_marketplace } from "../../utils/process_collections";
 
+init_marketplace()
