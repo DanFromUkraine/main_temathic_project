@@ -1,7 +1,12 @@
+import { multi_check } from "./multiple_check";
 
 
 export function rewrite_cell(storage, key, val) {
+  if (key && val && storage) {
     storage.setItem(key, JSON.stringify(val));
+  } else {
+    throw `Неможливо записати у ${storage} властивість ${key} із значенням ${val}`
+  }
   }
   
   export function add_to_array_cell(storage, key, val) {
@@ -15,11 +20,25 @@ export function rewrite_cell(storage, key, val) {
     }
   }
   
-  export function read_st(type, key) {
-    const val = JSON.parse(type.getItem(key));
-    if (val) {
-      return val;
-    } else {
-      return "";
+  export async function read_st(type, key) {
+    const json_data = type.getItem(key);
+    
+    if (json_data) {
+
     }
+    const val = JSON.parse(json_data);
+      if (val) {
+        return val;
+      } else {
+        return "";
+      }
+    }
+   
+  export function read_ss(key) {
+    const val = sessionStorage.getItem(key)
+    multi_check([!key, () => {throw `key is ${key}`}],
+                [!val, () => {throw `val is ${val}`}],
+                [!JSON.parse(val), () => {throw `ss.get(${key}) is ${JSON.parse(val)}`}])
   }
+
+  read_ss(undefined);

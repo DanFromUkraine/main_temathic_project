@@ -7,12 +7,6 @@ export const constants = {
     },
   },
   GET_collections: (next, limit) => {
-    console.log(next);
-    if (next) {
-      console.log("truly next");
-    } else {
-      console.log("nope");
-    }
     return `https://api.opensea.io/api/v2/collections?chain=ethereum&include_hidden=false&limit=13&${
       next ? "next=" + next : ""
     }&order_by=seven_day_volume`;

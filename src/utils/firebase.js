@@ -42,7 +42,6 @@ export function sign_in_with_email_and_password({email, password}) {
     // Signed in 
     const user = userCredential.user;
     return user;
-    console.log(user)
     // ...
   })
   .catch((error) => {

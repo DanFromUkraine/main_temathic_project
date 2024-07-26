@@ -14,7 +14,6 @@ async function add_header() {
         if (sessionStorage.getItem("status")) {
           document.querySelector(".logout_button").addEventListener("click", () => {
                     sign_out().then(mess => {
-                        console.log(mess);
                         sessionStorage.setItem("status", false);
                         location.reload(false);
                         location.replace("./create_account.html");
@@ -23,9 +22,7 @@ async function add_header() {
         }
       resolve();
     });
-  } else {
-    console.warn("шаблон вже доданий");
-  }
+  } 
 
   document
     .querySelector(".burger_menu")

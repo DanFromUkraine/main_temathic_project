@@ -11,9 +11,7 @@ async function add_footer() {
           );
         resolve();
       });
-    } else {
-      console.warn("шаблон вже доданий");
-    }
+    } 
 }
   
   add_footer()

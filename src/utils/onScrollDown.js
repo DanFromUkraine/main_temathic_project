@@ -12,7 +12,6 @@ export function onScrollDown(obserbable_cont) {
   const observer_callback = (entries, observer) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting && count <= 3) {
-        console.log("see");
         count++;
         fetch_collections({writable: false}, { should_render: true, render_subject: document.querySelector(".cards_cont")});
         observer.unobserve(entry.target);

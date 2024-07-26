@@ -5,8 +5,9 @@ import "../../utils/add_footer";
 import "../../utils/scroll_to_top";
 import "../../utils/process_collections";
 import "../../utils/onOffline";
-import "../../utils/show_more";
-// import { onScrollDown } from "../../utils/onScrollDown";
-import { init_marketplace } from "../../utils/process_collections";
+import { show_more_func } from "../../utils/show_more";
+import { init_marketplace } from "../../utils/marketplace/init_marketplace";
+import { constants } from "../../utils/constants";
 
 init_marketplace()
+
