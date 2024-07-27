@@ -1,0 +1,32 @@
+
+.cards_cont {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 30px;
+    padding: 60px 8.984vw 60px 8.984vw;
+    .card {
+        width: 25.781vw;
+        .main-img-wrapper {
+            img {
+                width: 100%;
+            }
+        }
+    }
+}
+
+@media (width < 834px) {
+    .cards_cont {
+        grid-template-columns: repeat(2, 1fr);
+        .card {
+            width: 39.568vw;
+        }
+    } 
+}
+@media (width < 420px) {
+    .cards_cont {
+        grid-template-columns: 1fr;
+        .card {
+            
+        }
+    }
+}

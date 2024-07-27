@@ -1,3 +1,5 @@
+@import "../utils/constants";
+
 header {
     display: flex;
     justify-content: space-between;
@@ -17,6 +19,13 @@ header {
       align-items: center;
       li {
         padding: 5px;
+
+        .logout_button {
+          img {
+            width: 50px;
+            height: 50px;
+          }
+        }
         
         a {
           font-size: 1.25vw;
@@ -104,13 +113,7 @@ header {
   
   @media (width < 834px) {
     header {
-      .logo {
-          img {
-            width: 25.984vw !important;
-          }
-        }
       ul {
-       
         display: block;
         text-align: right;
         margin-top: 177px;
@@ -131,4 +134,5 @@ header {
       }
     }
   }
+  
   

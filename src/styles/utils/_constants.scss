@@ -6,12 +6,6 @@
   }
 }
 
-.logo {
-  img {
-    width: 18.984vw;
-    height: 5vh;
-  }
-}
 
 
 .weekly_digest {
@@ -61,14 +55,7 @@
   
 }
 
-@media (width < 834px) {
-  .logo {
-    img {
-      width: 36vw;
-    }
-  }
-  
-}
+
 @media (width < 375px) {
   .weekly_digest {
     p {
@@ -98,7 +85,30 @@
   @media (width < 834px) {
     font-size: 1.439vmax !important;
   }
-  @media (width < 324px) {
-    
+}
+
+body {
+  min-width: 350px;
+}
+
+
+.logo {
+  img {
+    width: 18.984vw;
+  }
+}
+
+@media (width < 834px) {
+  .logo {
+    img {
+      width: 36vw;
+    }
+  }
+}
+
+
+@media (width < 420px) {
+  .logo img {
+    width: 46vw !important;
   }
 }

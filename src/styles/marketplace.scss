@@ -1,5 +1,5 @@
 
-
+@import "./utils/cards-cont";
 
 .main_marketplace {
     padding: 100px 0 100px 8.984vw;
@@ -23,19 +23,12 @@
 }
 
 .cards_cont {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
+    @extend .cards_cont;
+  
     background-color: #3B3B3B;
-    padding: 60px 0 60px 8.984vw;
 
     .card {
-        width: 25.781vw;
-        .main-img-wrapper {
-            img {
-                width: 25.781vw;
-            }
-        }
+       
         .info_block {
             background-color: #2b2b2b;
             position: relative;
